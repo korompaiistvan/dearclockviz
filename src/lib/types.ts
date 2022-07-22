@@ -23,3 +23,11 @@ export type processedTimeData = {
 export type TimestampString = `${string}:${string}`;
 
 export type ActivityType = 'fun' | 'sleep' | 'paidWork' | 'unpaidWork' | 'commute';
+
+interface StyleStatement {
+	r: number;
+	fill: string;
+}
+export type StyleMap = {
+	[key in ActivityType]: StyleStatement;
+};

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type {ActivityType, processedTimeInformation} from '$lib/types'
+    import type {processedTimeInformation, StyleMap} from '$lib/types'
     
     export let dialCx1: number;
     export let dialCx2: number;
@@ -13,21 +13,7 @@
 
     export let data: processedTimeInformation[];
 
-    const radiusFactor = 1.2
-    interface StyleStatement {
-        r: number,
-        fill: string
-    }
-    type StyleMap = {
-        [key in ActivityType]: StyleStatement
-    }
-    const styleMap: StyleMap = {
-        'sleep':        {r: 1 * radiusFactor, fill: '#c99da3'},
-        'paidWork':     {r: 10 * radiusFactor, fill: '#2191FB'},
-        'fun':          {r: 5 * radiusFactor, fill: '#BA274A'},
-        'unpaidWork':   {r: 3 * radiusFactor, fill: '#CCAD8F'},
-        'commute':      {r: 2 * radiusFactor, fill: 'grey'},
-    }
+    export let styleMap: StyleMap;
 
     interface Dot {
         cx: number,
@@ -47,8 +33,9 @@
         if (!isAfternoon) {
             // im not sure about the order of these two operations
             // but 1 pi is a special case as its the same added and subtracted
-            theta *= -1
+            // theta *= -1
             theta += Math.PI
+            theta += timeGranularity/(minutesInADay/2) * 2 * Math.PI
         }
 
         const dialCx = isAfternoon ? dialCx1 : dialCx2

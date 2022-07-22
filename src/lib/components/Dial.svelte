@@ -5,7 +5,7 @@
 
 </script>
 <g>
-    <circle {r} {cx} {cy}/>
+    <circle {r} {cx} {cy} fill='#ababab'/>
 </g>
 <style>
 
