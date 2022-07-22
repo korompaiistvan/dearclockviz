@@ -20,7 +20,7 @@
     }
 
     svg {
-        border: 0.5px solid #a8a8a8;
+        border: 0.25px solid #e3e3e3;
         height: 100%;
     }
 </style>
