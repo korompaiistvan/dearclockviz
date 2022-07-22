@@ -1,6 +1,7 @@
 <script lang="ts">
     import Dial from "$lib/components/Dial.svelte";
     import Band from "$lib/components/Band.svelte";
+    import Canvas from "$lib/components/Canvas.svelte";
     import processData from "$lib/processData";
     import { data } from "$lib/data";
     import type { Name, StyleMap } from "$lib/types";
@@ -35,28 +36,10 @@
 
 </script>
 
-<div class='mockupWrapper'>
-    <svg viewBox='0 0 {vBWidth} {vBHeight}' preserveAspectRatio='xMidYMid meet'>
-        <Dial cx={cx1} cy={cy} r={dialRadius}/>
-        <Dial cx={cx2} cy={cy} r={dialRadius}/>
-        {#each bandsData as bandData, bandIndex}
-            <Band dialCx1={cx1} dialCx2={cx2} dialCy={cy} {dialRadius} {bandSpacing} {dialPadding} {timeGranularity} {bandIndex} data={bandData} {styleMap}/>
-        {/each}
-    </svg>
-</div>
-
-<style>
-    .mockupWrapper {
-        --innerPadding: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: calc(100vh - 2 * var(--innerPadding));
-        padding: var(--innerPadding);
-    }
-
-    svg {
-        border: 0.5px solid #a8a8a8;
-        height: 100%;
-    }
-</style>
+<Canvas {vBHeight} {vBWidth}>
+    <Dial cx={cx1} cy={cy} r={dialRadius}/>
+    <Dial cx={cx2} cy={cy} r={dialRadius}/>
+    {#each bandsData as bandData, bandIndex}
+        <Band dialCx1={cx1} dialCx2={cx2} dialCy={cy} {dialRadius} {bandSpacing} {dialPadding} {timeGranularity} {bandIndex} data={bandData} {styleMap}/>
+    {/each}
+</Canvas>
