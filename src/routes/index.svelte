@@ -1,6 +1,37 @@
+<script lang="ts">
+    import Dial from "$lib/components/Dial.svelte";
+    import Band from "$lib/components/Band.svelte";
+    import processData from "$lib/processData";
+    import { data } from "$lib/data";
+    import type { Name } from "$lib/types";
+
+    const vBWidth = 2970;
+    const vBHeight = 2100;
+
+    const dialRadius = 200;
+    const bandSpacing = 40;
+    const dialPadding = bandSpacing;
+    const bandGroupSpacing = bandSpacing;
+    const timeGranularity = 5 // minutes
+
+    const cy =  vBHeight/2
+    const cxOffset = bandGroupSpacing/2 + 2*bandSpacing + dialPadding + dialRadius/2
+    const cx1 = vBWidth/2 - cxOffset
+    const cx2 = vBWidth/2 + cxOffset
+    
+    const processedData = processData(data)
+    const bandOrder: Name[] = ['Tamas', 'Pisti', 'Julcsi']
+    const bandsData = bandOrder.map(n => processedData[n])
+    console.log(bandsData)
+</script>
+
 <div class='mockupWrapper'>
-    <svg viewBox='0 0 2970 2100' preserveAspectRatio='xMidYMid meet'>
-        <circle cx={2970/2} cy=1050 r=20 stroke='black'></circle>
+    <svg viewBox='0 0 {vBWidth} {vBHeight}' preserveAspectRatio='xMidYMid meet'>
+        <Dial cx={cx1} cy={cy} r={dialRadius}/>
+        <Dial cx={cx2} cy={cy} r={dialRadius}/>
+        {#each bandsData as bandData, bandIndex}
+            <Band dialCx1={cx1} dialCx2={cx2} dialCy={cy} {dialRadius} {bandSpacing} {dialPadding} {timeGranularity} {bandIndex} data={bandData}/>
+        {/each}
     </svg>
 </div>
 
