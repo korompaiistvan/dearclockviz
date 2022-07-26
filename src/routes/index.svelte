@@ -27,8 +27,12 @@
 <div class="main">
     <ControlPanel />
     <Canvas {vBHeight} {vBWidth}>
-        <Dial cx={cx1} cy={cy} r={$dialRadius}/>
-        <Dial cx={cx2} cy={cy} r={$dialRadius}/>
+        <g transform='rotate(90, {cx1}, {cy})'>
+            <Dial cx={cx1} cy={cy} r={$dialRadius}/>
+        </g>
+        <g transform='rotate(-90, {cx2}, {cy})'>
+            <Dial cx={cx2} cy={cy} r={$dialRadius}/>
+        </g>
         {#each bandsData as bandData, bandIndex}
         <Band
         dialCx1={cx1} dialCx2={cx2} dialCy={cy} {bandIndex} data={bandData} {styleMap}/>
