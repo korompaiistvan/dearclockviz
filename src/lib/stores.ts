@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store';
 
-export const dialRadius = writable(250);
+export const dialRadius = writable(200);
 export const bandSpacing = writable(120);
 
 export const dialPaddingFactor = writable(1.0);

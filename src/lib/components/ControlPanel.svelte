@@ -5,7 +5,7 @@
 <div class='controlWrapper'>
     <ControlPanelRow>
         <label for='bandSpacing'>Band spacing</label>
-        <input id='bandSpacing' type='range' min=0 max=120 bind:value={$bandSpacing}>
+        <input id='bandSpacing' type='range' min=0 max=300 bind:value={$bandSpacing}>
     </ControlPanelRow>
     <ControlPanelRow>
         <label for='timeGranularity'>Minutes per dot</label>
