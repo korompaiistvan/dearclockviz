@@ -1,10 +1,10 @@
 import type { StyleMap } from '$lib/types';
-const radiusFactor = 0.15;
+const radiusFactor = 1;
 
 export const styleMap: StyleMap = {
-	sleep: { r: 25 * radiusFactor, fill: '#c99da3' },
-	paidWork: { r: 100 * radiusFactor, fill: '#2191FB' },
-	fun: { r: 75 * radiusFactor, fill: '#42d9c8' },
-	unpaidWork: { r: 75 * radiusFactor, fill: '#CCAD8F' },
-	commute: { r: 50 * radiusFactor, fill: 'grey' }
+	sleep: { r: 8.5 * radiusFactor, fill: '#4682B4' }, //confirmed
+	paidWork: { r: 27.5 * radiusFactor, fill: '#bc7361' }, //confirmed
+	fun: { r: 26.25 * radiusFactor, fill: '#ffd55f' }, //confirmed
+	unpaidWork: { r: 27.5 * radiusFactor, fill: '#C0C0C0' }, //confirmed
+	commute: { r: 13 * radiusFactor, fill: '#C0C0C0' }
 };
