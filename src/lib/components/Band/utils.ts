@@ -21,15 +21,15 @@ export function generateDots(
 
 		const minuteOfHalfDay = isAfternoon ? minuteOfDay - minutesInADay / 2 : minuteOfDay;
 		let theta = (minuteOfHalfDay / (minutesInADay / 2)) * 2 * Math.PI;
-		if (!isAfternoon) {
+		if (isAfternoon) {
 			// im not sure about the order of these two operations
 			// but 1 pi is a special case as its the same added and subtracted
 			// theta *= -1
 			theta += Math.PI;
-			theta += (timeGranularity / (minutesInADay / 2)) * 2 * Math.PI;
 		}
+		theta += (timeGranularity / (minutesInADay / 2)) * Math.PI;
 
-		const dialCx = isAfternoon ? dialCx1 : dialCx2;
+		const dialCx = isAfternoon ? dialCx2 : dialCx1;
 		const cx = Math.cos(theta) * rho + dialCx;
 		const cy = Math.sin(theta) * rho + dialCy;
 
