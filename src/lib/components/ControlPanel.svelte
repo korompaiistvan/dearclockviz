@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {bandSpacing, dialPaddingFactor, bandGroupSpacingFactor, timeGranularity, radiusFactor} from '$lib/stores'
+    import {bandSpacing, dialPaddingFactor, bandGroupSpacingFactor, timeGranularity} from '$lib/stores'
     import ControlPanelRow from './ControlPanelRow.svelte';
 </script>
 <div class='controlWrapper'>

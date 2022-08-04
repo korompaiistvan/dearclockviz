@@ -15,6 +15,6 @@ export const bandGroupSpacing = derived(
 	([$bandGroupSpacingFactor, $bandSpacing]) => $bandGroupSpacingFactor * $bandSpacing
 );
 
-export const timeGranularity = writable(15); //minutes
+export const timeGranularity = writable(20); //minutes
 
 export const radiusFactor = writable(0.15);
